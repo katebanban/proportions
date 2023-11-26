@@ -1,0 +1,323 @@
+//! Убирает стрелочки (вверх-вниз) в <input type="number"> (вроде как для всех браузеров должно подходить)
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
+input[type="number"],
+input[type="number"]:hover,
+input[type="number"]:focus {
+	appearance: none;
+	-moz-appearance: textfield;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap");
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+html,
+body {
+	min-height: 100vh;
+}
+
+img,
+svg,
+source {
+	max-width: 100%;
+}
+
+a,
+input,
+button,
+textarea,
+select,
+option {
+	cursor: pointer;
+	font: inherit;
+}
+
+body {
+	font-family: "Caveat", cursive;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 36px;
+	color: rgb(12, 22, 114);
+	background: url("../img/bg-table.jpg") center/cover no-repeat;
+}
+
+.wrapper {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+
+.container {
+	max-width: calc(1970px + 30px);
+	margin: 0 auto;
+	padding: 0px 15px;
+}
+
+.unknown--value {
+	input {
+		background: rgba(235, 9, 9, 0.3);
+		cursor: unset;
+	}
+
+	label {
+		color: rgb(235, 9, 9);
+	}
+}
+
+.proportions {
+	background: url("../img/bg-sheet.png");
+	background-position: top;
+	background-size: contain;
+	background-repeat: no-repeat;
+
+	@media (max-width: 800px) {
+		background-size: cover;
+		background-position: left top;
+	}
+
+	@media (max-width: 400px) {
+		background-position: top;
+	}
+
+	&__body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 25px;
+		min-height: 100dvh;
+
+		@media (max-width: 600px) {
+			gap: 15px;
+		}
+	}
+
+	&__btn-reverse {
+		margin-top: -160px;
+		border: none;
+		background: transparent;
+		position: relative;
+		width: 40px;
+		height: 40px;
+		transition: all 0.3s;
+
+		@media (max-width: 800px) {
+			margin-top: -130px;
+		}
+
+		@media (max-width: 600px) {
+			width: 30px;
+			height: 30px;
+		}
+
+		svg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			fill: rgb(12, 22, 114);
+			transition: all 0.3s;
+
+			&:hover {
+				fill: rgb(235, 9, 9);
+			}
+		}
+
+		&.active {
+			transform: rotate(180deg);
+		}
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__values {
+		display: flex;
+		align-items: center;
+
+		&:not(:last-child) {
+			margin-bottom: 50px;
+		}
+	}
+
+	&__values-column {
+		display: flex;
+		flex-direction: column;
+
+		label {
+			&:nth-child(even) {
+				padding-top: 10px;
+			}
+
+			&:nth-child(odd) {
+				padding-bottom: 10px;
+			}
+
+			@media (max-width: 800px) {
+				font-size: 25px;
+			}
+
+			@media (max-width: 600px) {
+				font-size: 19px;
+			}
+		}
+
+		&.active {
+			flex-direction: column-reverse;
+
+			label {
+				&:nth-child(even) {
+					padding-top: unset;
+					padding-bottom: 10px;
+				}
+
+				&:nth-child(odd) {
+					padding-bottom: unset;
+					padding-top: 10px;
+				}
+			}
+
+			.proportions__value-box {
+				flex-direction: column-reverse;
+
+				&:nth-child(odd) {
+					margin-bottom: unset;
+					margin-top: 25px;
+					position: relative;
+
+					&::after {
+						content: "";
+						background: url("../img/line.svg") center/cover no-repeat;
+						width: 180px;
+						height: 3px;
+						position: absolute;
+						top: -15px;
+						left: 0;
+
+						@media (max-width: 800px) {
+							width: 120px;
+						}
+
+						@media (max-width: 600px) {
+							width: 100px;
+						}
+					}
+				}
+
+				&:nth-child(even) {
+					&::after {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+
+	&__value-box {
+		display: flex;
+		flex-direction: column;
+
+		&:nth-child(odd) {
+			margin-bottom: 25px;
+		}
+
+		&:nth-child(even) {
+			position: relative;
+
+			&::after {
+				content: "";
+				background: url("../img/line.svg") center/cover no-repeat;
+				width: 180px;
+				height: 3px;
+				position: absolute;
+				top: -15px;
+				left: 0;
+
+				@media (max-width: 800px) {
+					max-width: 120px;
+				}
+
+				@media (max-width: 600px) {
+					max-width: 100px;
+				}
+			}
+		}
+	}
+
+	&__value {
+		max-width: 180px;
+		border: 3px solid transparent;
+		outline: none;
+		background: rgba(183, 202, 209, 0.5);
+		color: inherit;
+		transition: all 0.3s;
+
+		&:focus {
+			color: rgb(235, 9, 9);
+		}
+
+		@media (max-width: 800px) {
+			max-width: 120px;
+		}
+
+		@media (max-width: 600px) {
+			max-width: 100px;
+		}
+	}
+
+	&__equal {
+		margin: 0 15px;
+
+		@media (max-width: 600px) {
+			margin: 0 10px;
+		}
+
+		@media (max-width: 400px) {
+			margin: 0 5px;
+		}
+
+		img {
+			display: block;
+		}
+	}
+
+	&__btn {
+		align-self: center;
+		background: url("../img/btn-bg.svg") center/cover no-repeat;
+		border: none;
+		padding: 40px 31px;
+		color: inherit;
+		font-size: 40px;
+		transition: all 0.3s;
+
+		&:hover {
+			color: rgb(235, 9, 9);
+			background: url("../img/btn-bg-red.svg") center/cover no-repeat;
+		}
+
+		@media (max-width: 800px) {
+			padding: 23px 31px;
+			font-size: 25px;
+		}
+	}
+}
