@@ -97,14 +97,21 @@ body {
 }
 .proportions__body {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 25px;
-  min-height: 100dvh;
+  min-height: 100vh;
+  padding: 60px 0;
 }
 @media (max-width: 600px) {
   .proportions__body {
     gap: 15px;
+  }
+}
+@media (max-width: 400px) {
+  .proportions__body {
+    gap: 5px;
   }
 }
 .proportions__btn-reverse {
@@ -171,6 +178,8 @@ body {
 @media (max-width: 600px) {
   .proportions__values-column label {
     font-size: 19px;
+    max-width: 100px;
+    line-height: 100%;
   }
 }
 .proportions__values-column.active {
@@ -201,11 +210,6 @@ body {
   top: -15px;
   left: 0;
 }
-@media (max-width: 800px) {
-  .proportions__values-column.active .proportions__value-box:nth-child(odd)::after {
-    width: 120px;
-  }
-}
 @media (max-width: 600px) {
   .proportions__values-column.active .proportions__value-box:nth-child(odd)::after {
     width: 100px;
@@ -233,11 +237,6 @@ body {
   top: -15px;
   left: 0;
 }
-@media (max-width: 800px) {
-  .proportions__value-box:nth-child(even)::after {
-    max-width: 120px;
-  }
-}
 @media (max-width: 600px) {
   .proportions__value-box:nth-child(even)::after {
     max-width: 100px;
@@ -253,11 +252,6 @@ body {
 }
 .proportions__value:focus {
   color: rgb(235, 9, 9);
-}
-@media (max-width: 800px) {
-  .proportions__value {
-    max-width: 120px;
-  }
 }
 @media (max-width: 600px) {
   .proportions__value {
@@ -275,6 +269,7 @@ body {
 @media (max-width: 400px) {
   .proportions__equal {
     margin: 0 5px;
+    width: 40px;
   }
 }
 .proportions__equal img {
@@ -282,20 +277,50 @@ body {
 }
 .proportions__btn {
   align-self: center;
-  background: url("../img/btn-bg.svg") center/cover no-repeat;
-  border: none;
-  padding: 40px 31px;
+  background: transparent;
+  border: 3px solid rgb(12, 22, 114);
+  border-radius: 50%;
+  padding: 30px 25px;
   color: inherit;
   font-size: 40px;
   transition: all 0.3s;
 }
 .proportions__btn:hover {
   color: rgb(235, 9, 9);
-  background: url("../img/btn-bg-red.svg") center/cover no-repeat;
+  border-color: rgb(235, 9, 9);
 }
 @media (max-width: 800px) {
   .proportions__btn {
-    padding: 23px 31px;
+    padding: 15px 25px;
     font-size: 25px;
+  }
+}
+.proportions__lang {
+  flex: 1 1 100%;
+}
+
+.lang {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.lang__btn {
+  padding: 4px 14px;
+  background: transparent;
+  border: 3px solid rgb(12, 22, 114);
+  border-radius: 50%;
+  transition: all 0.3s;
+  color: inherit;
+  position: relative;
+}
+.lang__btn:hover {
+  border-color: rgb(235, 9, 9);
+  color: rgb(235, 9, 9);
+}
+@media (max-width: 800px) {
+  .lang__btn {
+    font-size: 25px;
+    padding: 0px 14px;
   }
 }

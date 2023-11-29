@@ -1,79 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Proportions</title>
 
-    <link href="./css/style.css" rel="stylesheet" />
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Proportions</title>
 
-    <script src="./js/script.js" defer></script>
-  </head>
+	<link href="./css/style.css" rel="stylesheet" />
 
-  <body>
-    <div class="wrapper">
-      <div class="proportions">
-        <div class="container">
-          <div class="proportions__body">
-				<button class="proportions__btn-reverse" type="button">
-					<svg>
-						<use xlink:href='./img/sprite.svg#btn-reverse'></use>
-					</svg>
-				</button>
-            <form class="proportions__form">
-              <div class="proportions__values">
-                <div class="proportions__values-column">
-                  <div class="proportions__value-box">
-                    <label for="value-1">Enter the value</label>
-                    <input
-                      class="proportions__value"
-                      id="value-1"
-                      type="number"
-                      value=""
-                    />
-                  </div>
-                  <div class="proportions__value-box">
-                    <input
-                      class="proportions__value"
-                      id="value-2"
-                      type="number"
-                      value=""
-                    />
-                    <label for="value-2">Enter the value</label>
-                  </div>
-                </div>
-                <div class="proportions__equal">
-                  <img src="./img/equal.svg" alt="equal" />
-                </div>
-                <div class="proportions__values-column">
-                  <div class="proportions__value-box">
-                    <label for="value-3">Enter the value</label>
-                    <input
-                      class="proportions__value"
-                      id="value-3"
-                      type="number"
-                      value=""
-                    />
-                  </div>
-                  <div class="proportions__value-box unknown--value">
-                    <input
-                      class="proportions__value"
-                      id="value-4"
-                      type="text"
-                      value=""
-                      disabled
-                    />
-                    <label for="value-4">Unknown value</label>
-                  </div>
-                </div>
-              </div>
-              <button class="proportions__btn" type="submit">
-                Get the answer
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
+	<script src="./js/script.js" defer></script>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="proportions">
+			<div class="container">
+				<div class="proportions__body">
+					<button class="proportions__btn-reverse" type="button">
+						<svg>
+							<use xlink:href='./img/sprite.svg#btn-reverse'></use>
+						</svg>
+					</button>
+					<form class="proportions__form">
+						<div class="proportions__values">
+							<div class="proportions__values-column">
+								<div class="proportions__value-box">
+									<label for="value-1" data-lang="label">Enter the value</label>
+									<input class="proportions__value" id="value-1" type="number" value="" />
+								</div>
+								<div class="proportions__value-box">
+									<input class="proportions__value" id="value-2" type="number" value="" />
+									<label for="value-2" data-lang="label">Enter the value</label>
+								</div>
+							</div>
+							<div class="proportions__equal">
+								<img src="./img/equal.svg" alt="equal" />
+							</div>
+							<div class="proportions__values-column">
+								<div class="proportions__value-box">
+									<label for="value-3" data-lang="label">Enter the value</label>
+									<input class="proportions__value" id="value-3" type="number" value="" />
+								</div>
+								<div class="proportions__value-box unknown--value">
+									<input class="proportions__value" id="value-4" type="text" value="" disabled />
+									<label for="value-4" data-lang="unknown">Unknown value</label>
+								</div>
+							</div>
+						</div>
+						<button class="proportions__btn" type="submit" data-lang="answer">
+							Get the result
+						</button>
+					</form>
+					<div class="proportions__lang lang">
+						<button class="lang__btn" type="button">
+							Рус
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
 </html>
